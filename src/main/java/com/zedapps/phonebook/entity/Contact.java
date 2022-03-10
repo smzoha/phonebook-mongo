@@ -1,6 +1,7 @@
 package com.zedapps.phonebook.entity;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -28,6 +29,9 @@ public class Contact {
     private String lastName;
 
     private boolean inactive;
+
+    @DBRef
+    private User enteredBy;
 
     @Field(value = "contact_infos")
     private List<ContactInfo> contactInfoList;
@@ -87,6 +91,14 @@ public class Contact {
         this.inactive = inactive;
     }
 
+    public User getEnteredBy() {
+        return enteredBy;
+    }
+
+    public void setEnteredBy(User enteredBy) {
+        this.enteredBy = enteredBy;
+    }
+
     public List<ContactInfo> getContactInfoList() {
         return contactInfoList;
     }
@@ -117,6 +129,7 @@ public class Contact {
                 .add("title='" + title + "'")
                 .add("firstName='" + firstName + "'")
                 .add("lastName='" + lastName + "'")
+                .add("enteredBy=" + enteredBy.toString())
                 .add("ContactInfoList=" + contactInfoList)
                 .toString();
     }
