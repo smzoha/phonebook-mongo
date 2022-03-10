@@ -23,6 +23,12 @@
             <h2 class="text-success"><c:out value="Welcome to Phonebook!"/></h2>
         </div>
 
+        <c:if test="${param.error}">
+            <div class="row col-sm-12 alert bg-danger text-light justify-content-center">
+                <strong><c:out value="Incorrect username or password!"/></strong>
+            </div>
+        </c:if>
+
         <form:form method="POST">
             <div class="row form-group">
                 <div class="col-sm-3 text-right text-light">
