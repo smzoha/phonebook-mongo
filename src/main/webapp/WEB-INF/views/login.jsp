@@ -18,6 +18,8 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body class="bg-dark">
+    <jsp:include page="_navbar.jsp"/>
+
     <div class="container" style="padding-top: 10pt">
         <div class="row col-sm-12 justify-content-center">
             <h2 class="text-success"><c:out value="Welcome to Phonebook!"/></h2>
