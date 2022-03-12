@@ -26,7 +26,7 @@ public class AppUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User dbUser = userService.getUserByUsername(username);
 
-        return new AppUserDetails(dbUser.getUsername(), dbUser.getPassword(), getAuthorities(dbUser.getRoles()));
+        return new AppUserDetails(dbUser.getId(), dbUser.getUsername(), dbUser.getPassword(), getAuthorities(dbUser.getRoles()));
     }
 
     private Collection<? extends GrantedAuthority> getAuthorities(List<String> roles) {

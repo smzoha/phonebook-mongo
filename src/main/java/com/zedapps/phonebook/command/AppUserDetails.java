@@ -11,7 +11,22 @@ import java.util.Collection;
  **/
 public class AppUserDetails extends User {
 
+    private String userId;
+
     public AppUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
+    }
+
+    public AppUserDetails(String userId, String username, String password, Collection<? extends GrantedAuthority> authorities) {
+        super(username, password, authorities);
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }
